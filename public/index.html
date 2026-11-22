@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA | AI Career Guidance Ecosystem</title>
+  <meta name="description" content="A premium AI-powered Career Guidance and Vacancy matching ecosystem cataloging courses from 10th Standard up to PhD.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="brand-logo">
+            <svg viewBox="0 0 24 24">
+              <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12C20,14.4 18.9,16.5 17.2,18L15.8,16.6C17.2,15.5 18,13.8 18,12A6,6 0 0,0 12,6A6,6 0 0,0 6,12C6,13.8 6.8,15.5 8.2,16.6L6.8,18C5.1,16.5 4,14.4 4,12A8,8 0 0,1 12,4M12,8A4,4 0 0,1 16,12C16,13.2 15.5,14.3 14.6,15L13.2,13.6C13.7,13.2 14,12.6 14,12A2,2 0 0,0 12,10A2,2 0 0,0 10,12C10,12.6 10.3,13.2 10.8,13.6L9.4,15C8.5,14.3 8,13.2 8,12A4,4 0 0,1 12,8Z" />
+            </svg>
+          </div>
+          <span class="brand-name">AURA AI</span>
+        </div>
+
+        <nav class="nav-menu">
+          <a class="nav-item active" id="nav-dashboard" onclick="switchSection('dashboard')">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" id="nav-matcher" onclick="switchSection('matcher')">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 4C13.7 4 15.3 4.7 16.5 5.8L15.1 7.2C14.2 6.5 13.1 6 12 6C8.7 6 6 8.7 6 12C6 15.3 8.7 18 12 18C14.7 18 17 16.2 17.7 13.8H12V11.8H19.7C19.9 12.5 20 13.2 20 14C20 18.4 17 21.5 12.5 21.5C6.9 21.5 2.5 17.1 2.5 11.5S6.9 1.5 12.5 1.5" />
+            </svg>
+            <span>AI Matcher</span>
+          </a>
+          <a class="nav-item" id="nav-explorer" onclick="switchSection('explorer')">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,18C11.11,18 10.26,17.8 9.5,17.45L11.56,15.39C11.7,15.4 11.85,15.43 12,15.43C13.89,15.43 15.43,13.89 15.43,12C15.43,11.85 15.4 11.7 15.39,11.56L17.45,9.5C17.8,10.26 18,11.11 18,12C18,15.31 15.31,18 12,18M12,6C12.89,6 13.74,6.2 14.5,6.55L12.44,8.61C12.3,8.6 12.15,8.57 12,8.57C10.11,8.57 8.57,10.11 8.57,12C8.57,12.15 8.6,12.3 8.61,12.44L6.55,14.5C6.2,13.74 6 12.11 6,12C6,8.69 8.69,6 12,6M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+            </svg>
+            <span>Course Explorer</span>
+          </a>
+          <a class="nav-item" id="nav-directory" onclick="switchSection('directory')">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 2H14A2 2 0 0 1 16 4V6H20A2 2 0 0 1 22 8V19A2 2 0 0 1 20 21H4A2 2 0 0 1 2 19V8A2 2 0 0 1 4 6H8V4A2 2 0 0 1 10 2M14 6V4H10V6H14M4 8V19H20V8H4M12 11A2 2 0 0 1 14 13A2 2 0 0 1 12 15A2 2 0 0 1 10 13A2 2 0 0 1 12 11M12 9A4 4 0 0 0 8 13A4 4 0 0 0 12 17A4 4 0 0 0 16 13A4 4 0 0 0 12 9Z" />
+            </svg>
+            <span>Job Directory</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <p>&copy; 2026 AURA Inc.</p>
+        <p style="margin-top: 0.25rem; font-size: 0.75rem;">AI Career Engine v2.0</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main-content">
+
+      <!-- ================= DASHBOARD SECTION ================= -->
+      <section id="dashboard" class="page-section active">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">Career Ecosystem Dashboard</h1>
+            <p class="section-subtitle">Real-time matching from 10th standard up to PhD credentials.</p>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-text">
+            <div class="hero-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              Updated V2 Engine
+            </div>
+            <h1>Unlock Your True Professional Value</h1>
+            <p>AURA analyzes your academic scores, certificates, and hard skills to map your credentials to 1,000+ verified corporate vacancies, salary distributions, and progressive career roadmaps across all fields.</p>
+            <button class="btn btn-primary" onclick="switchSection('matcher')">
+              Evaluate My Career
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="hero-image">
+            <div class="floating-spheres">
+              <div class="sphere sphere-1"></div>
+              <div class="sphere sphere-2"></div>
+              <div class="sphere sphere-3"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <h3 id="stat-courses">25+</h3>
+              <p>Course Pathways</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <h3 id="stat-careers">14+</h3>
+              <p>Specialized Careers</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <h3 id="stat-jobs">1000+</h3>
+              <p>Hiring Companies</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-container">
+          <h2 class="features-title">Intelligent Capabilities</h2>
+          <div class="features-grid">
+            <div class="feature-card" onclick="switchSection('directory')">
+              <div class="feature-header">
+                <div style="color: var(--secondary);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+                <h3>1,000+ Hiring Directory</h3>
+              </div>
+              <p>Browse active vacancies in all engineering, medical, financial, and management fields. Filter immediately by required company skills.</p>
+              <span class="feature-link">Open Directory &rarr;</span>
+            </div>
+
+            <div class="feature-card" onclick="switchSection('explorer')">
+              <div class="feature-header">
+                <div style="color: var(--accent);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </div>
+                <h3>Global Course Explorer</h3>
+              </div>
+              <p>Select your educational tier (10th, 12th, UG, PG) to examine every higher study path available worldwide, core subjects, and required skills.</p>
+              <span class="feature-link">Explore Courses &rarr;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= AI MATCHER SECTION ================= -->
+      <section id="matcher" class="page-section">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">AI Career Readiness & Placement Evaluator</h1>
+            <p class="section-subtitle">Real ATS Resume Parsing (30%) &bull; GitHub Practical Projects (35%) &bull; 10-Question Real Company Placement Test (35%)</p>
+          </div>
+        </div>
+
+        <div class="wizard-card">
+          <div class="wizard-steps-nav">
+            <div class="wizard-step-tab active" id="tab-step-1">
+              <span>1</span> Resume & ATS Parser
+            </div>
+            <div class="wizard-step-tab" id="tab-step-2">
+              <span>2</span> Academics & Projects
+            </div>
+            <div class="wizard-step-tab" id="tab-step-3">
+              <span>3</span> Skills Profile
+            </div>
+            <div class="wizard-step-tab" id="tab-step-4">
+              <span>4</span> Real Company Assessment (10 Qs)
+            </div>
+          </div>
+
+          <div class="wizard-body">
+            
+            <!-- Step 1 Pane: AI Resume & ATS Parser -->
+            <div class="wizard-step-pane active" id="pane-step-1">
+              <div class="scanner-grid">
+                <div>
+                  <div class="upload-zone" id="drop-zone" onclick="triggerFileInput()">
+                    <div class="laser-line"></div>
+                    <div class="upload-icon">
+                      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                      </svg>
+                    </div>
+                    <h3>Upload Candidate Resume (CV)</h3>
+                    <p>Drag & drop your Resume here, or <span>browse files</span></p>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Supports PDF, DOCX, TXT (Optical ATS Keyword & Entity Extraction)</p>
+                    <input type="file" id="file-input" style="display: none;" onchange="handleFileSelect(event)">
+                  </div>
+                  
+                  <div class="status-banner success" id="scan-status" style="display: none;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <div style="flex: 1;">
+                      <div id="scan-status-text" style="font-weight: 700;">ATS Parsing Successful!</div>
+                      <div id="scan-ats-score-badge" style="font-size: 0.8rem; color: #10b981; font-weight: 600; margin-top: 2px;">ATS Resume Score: 92/100 &bull; 10 Skills & 2 Projects Extracted</div>
+                    </div>
+                  </div>
+
+                  <!-- Resume Raw Text Option -->
+                  <div style="margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                      <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);">Or Paste Raw Resume Text</span>
+                      <button class="btn btn-secondary" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;" onclick="parseRawResumeText()">Extract from Text</button>
+                    </div>
+                    <textarea id="raw-resume-text" class="form-control" rows="3" placeholder="Paste your resume content, GitHub link, and summary here..." style="font-size: 0.8rem; font-family: monospace;"></textarea>
+                  </div>
+                </div>
+
+                <div class="sample-selector-card">
+                  <h4>Try Sample Verified Resumes</h4>
+                  <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.8rem; line-height: 1.4;">
+                    Click a professional profile to test the AI ATS parser with full projects and experience.
+                  </p>
+                  <div class="sample-buttons" style="max-height: 290px; overflow-y: auto; padding-right: 0.25rem; display: flex; flex-direction: column; gap: 0.45rem;">
+                    
+                    <button class="sample-btn" onclick="simulateScan('Tamil_Selvan_FullStack_Resume.pdf')">
+                      <div>
+                        <div style="font-weight: 700; color: var(--text-primary);">💻 Tamil_Selvan_FullStack_Resume.pdf</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">React, Node, Mongo, Docker &bull; 2 Projects</div>
+                      </div>
+                      <span style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">Parse</span>
+                    </button>
+
+                    <button class="sample-btn" onclick="simulateScan('Tamil_Selvan_AI_DataScientist_Resume.pdf')">
+                      <div>
+                        <div style="font-weight: 700; color: var(--text-primary);">🤖 Tamil_Selvan_AI_DataScientist_Resume.pdf</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Python, PyTorch, XGBoost &bull; 2 ML Projects</div>
+                      </div>
+                      <span style="font-size: 0.75rem; color: var(--accent); font-weight: 700;">Parse</span>
+                    </button>
+
+                    <button class="sample-btn" onclick="simulateScan('Tamil_Selvan_Cloud_DevOps_Resume.pdf')">
+                      <div>
+                        <div style="font-weight: 700; color: var(--text-primary);">☁️ Tamil_Selvan_Cloud_DevOps_Resume.pdf</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">AWS, Kubernetes, Terraform, CI/CD</div>
+                      </div>
+                      <span style="font-size: 0.75rem; color: var(--secondary); font-weight: 700;">Parse</span>
+                    </button>
+
+                    <button class="sample-btn" onclick="simulateScan('Tamil_Selvan_Java_Backend_Resume.pdf')">
+                      <div>
+                        <div style="font-weight: 700; color: var(--text-primary);">☕ Tamil_Selvan_Java_Backend_Resume.pdf</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Java 17, Spring Boot, Kafka, MySQL</div>
+                      </div>
+                      <span style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">Parse</span>
+                    </button>
+
+                    <button class="sample-btn" onclick="simulateScan('Tamil_Selvan_Fresher_CSE_Resume.pdf')">
+                      <div>
+                        <div style="font-weight: 700; color: var(--text-primary);">🎓 Tamil_Selvan_Fresher_CSE_Resume.pdf</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">C++, Java, DSA, Web Basics &bull; Fresher 2026</div>
+                      </div>
+                      <span style="font-size: 0.75rem; color: #10b981; font-weight: 700;">Parse</span>
+                    </button>
+
+                    <button class="sample-btn" onclick="simulateScan('Annamalai_Leadership_Executive_Resume.pdf')" style="border-color: var(--secondary);">
+                      <div>
+                        <div style="font-weight: 700; color: var(--secondary);">🦁 Annamalai_Leadership_Executive_Resume.pdf</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">UPSC IPS / IIM MBA &bull; Executive Governance</div>
+                      </div>
+                      <span style="font-size: 0.75rem; color: var(--secondary); font-weight: 700;">Parse</span>
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 Pane: Educational Journey details -->
+            <div class="wizard-step-pane" id="pane-step-2">
+              <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label>Highest Qualification Level</label>
+                <div class="qualification-cards">
+                  <div class="qual-card" onclick="selectQualificationCard('10th')" id="qual-card-10th">
+                    <h5>10th Standard</h5>
+                    <p>SSLC / Matriculation</p>
+                  </div>
+                  <div class="qual-card" onclick="selectQualificationCard('12th Science')" id="qual-card-12th-Science">
+                    <h5>12th Science</h5>
+                    <p>HSC Science</p>
+                  </div>
+                  <div class="qual-card" onclick="selectQualificationCard('12th Commerce')" id="qual-card-12th-Commerce">
+                    <h5>12th Commerce</h5>
+                    <p>HSC Commerce</p>
+                  </div>
+                  <div class="qual-card" onclick="selectQualificationCard('12th Arts')" id="qual-card-12th-Arts">
+                    <h5>12th Arts</h5>
+                    <p>HSC Humanities</p>
+                  </div>
+                  <div class="qual-card" onclick="selectQualificationCard('Diploma')" id="qual-card-Diploma">
+                    <h5>Diploma</h5>
+                    <p>Polytechnic</p>
+                  </div>
+                  <div class="qual-card" onclick="selectQualificationCard('UG')" id="qual-card-UG">
+                    <h5>Undergrad (UG)</h5>
+                    <p>B.E. / B.Sc / B.Com</p>
+                  </div>
+                  <div class="qual-card" onclick="selectQualificationCard('PG')" id="qual-card-PG">
+                    <h5>Postgrad (PG)</h5>
+                    <p>M.E. / M.Sc / MBA</p>
+                  </div>
+                  <div class="qual-card" onclick="selectQualificationCard('PhD')" id="qual-card-PhD">
+                    <h5>Doctorate (PhD)</h5>
+                    <p>PhD / Research</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="input-name">Candidate Full Name</label>
+                  <input type="text" id="input-name" class="form-control" placeholder="Enter candidate full name">
+                </div>
+                <div class="form-group">
+                  <label for="input-mark">Academic Marks / GPA</label>
+                  <input type="text" id="input-mark" class="form-control" placeholder="e.g. 93.6% or 8.9 CGPA">
+                </div>
+                <div class="form-group">
+                  <label for="input-stream">Degree Stream / Specialization</label>
+                  <input type="text" id="input-stream" class="form-control" placeholder="e.g. Computer Science, AI & DS, ECE">
+                </div>
+                <div class="form-group">
+                  <label for="input-institution">School / University Institution</label>
+                  <input type="text" id="input-institution" class="form-control" placeholder="e.g. Anna University, Kendriya Vidyalaya">
+                </div>
+              </div>
+
+              <!-- Practical Projects & GitHub Section (35% Practical Weightage) -->
+              <div style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 12px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 1.1rem;">💻</span>
+                    <h4 style="color: var(--text-primary); font-size: 0.95rem; font-weight: 700;">Practical Projects & GitHub Portfolio</h4>
+                  </div>
+                  <span style="font-size: 0.75rem; color: #10b981; font-weight: 700; background: rgba(16, 185, 129, 0.12); padding: 0.25rem 0.65rem; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.3);">Project Weight: 35%</span>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                  Real company recruitment verifies hands-on coding, live deployment, and GitHub repos over simple paper marks.
+                </p>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="input-project-title">Key Project Title</label>
+                    <input type="text" id="input-project-title" class="form-control" placeholder="e.g. E-Commerce Cloud Platform / AI Vision System">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-project-tech">Tech Stack Used</label>
+                    <input type="text" id="input-project-tech" class="form-control" placeholder="e.g. React, Node.js, MongoDB, Docker">
+                  </div>
+                  <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                      <label for="input-github-url" style="margin: 0;">GitHub Repository / Live Demo URL</label>
+                      <button class="btn btn-secondary" type="button" onclick="auditGitHubRepository()" style="padding: 0.2rem 0.6rem; font-size: 0.72rem; color: #10b981; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08);">
+                        ⚡ Audit Repo Code
+                      </button>
+                    </div>
+                    <input type="text" id="input-github-url" class="form-control" placeholder="https://github.com/username/project-repo">
+                    <div id="github-audit-result" style="display: none; margin-top: 0.4rem; font-size: 0.75rem; padding: 0.5rem 0.75rem; border-radius: 8px;"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="input-experience">Practical Experience / Internships</label>
+                    <input type="text" id="input-experience" class="form-control" placeholder="e.g. 1 Year (Internship + Freelance)">
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 0.75rem;">
+                  <label for="input-project-desc">Project Highlights & Impact</label>
+                  <input type="text" id="input-project-desc" class="form-control" placeholder="Briefly describe system features, API performance, or deployment achievements">
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 Pane: Skills Input -->
+            <div class="wizard-step-pane" id="pane-step-3">
+              <div class="skills-container">
+                <div class="form-group">
+                  <label>Technical Skills Extracted from Resume (30% Profile Weight)</label>
+                  <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem;">
+                    Extracted automatically from resume. You can add or remove tags below.
+                  </p>
+                  <input type="text" id="skill-input-tag" class="form-control" placeholder="Add skill (e.g. Docker, Python, SQL) and press Enter" onkeydown="handleSkillInput(event)">
+                </div>
+
+                <div class="selected-skills-area" id="skills-display-box">
+                  <div class="selected-skills-placeholder" id="skills-empty-placeholder">No skills added yet. Choose from list below or type above.</div>
+                </div>
+
+                <div class="form-group">
+                  <label>Popular Skills Suggestions</label>
+                  <div class="skill-suggestions-grid" id="suggestions-box">
+                    <!-- Loaded dynamically -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 Pane: Real Company Technical Assessment (10 Questions - 35% Weightage) -->
+            <div class="wizard-step-pane" id="pane-step-4">
+              <div class="assessment-container">
+                <div class="assessment-header-bar" style="background: rgba(15, 18, 36, 0.8); border: 1px solid var(--border-glow); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                      <span style="font-size: 1.2rem;">🏆</span>
+                      <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Real Company Technical Placement Round</h3>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                      Random 10 Questions from a 35+ Question Bank: <strong style="color: #ef4444;">Zoho</strong>, <strong style="color: #f59e0b;">Amazon</strong>, <strong style="color: #10b981;">TCS Digital</strong>, <strong style="color: #06b6d4;">Infosys DSE</strong>, <strong style="color: #4285f4;">Google</strong>, <strong style="color: #00a4ef;">Microsoft</strong> & <strong style="color: #a855f7;">Accenture</strong>.
+                    </p>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                    <button class="btn btn-secondary" onclick="shuffleNewAssessmentSet(true)" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.4rem; color: #a5b4fc; border-color: rgba(99, 102, 241, 0.4); background: rgba(99, 102, 241, 0.08);" title="Load a fresh randomized set of 10 real company questions">
+                      <span>🔀</span> Different 10 Questions
+                    </button>
+                    <span id="q-shuffle-toast" style="display: none; font-size: 0.75rem; color: #10b981; font-weight: 700; background: rgba(16, 185, 129, 0.15); padding: 0.2rem 0.5rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                      ✓ 10 Fresh Questions Loaded!
+                    </span>
+                    <div class="assessment-timer-badge" style="background: rgba(99, 102, 241, 0.15); border: 1px solid var(--primary); padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.4rem;">
+                      <span>⏱️ Live Test</span>
+                      <span id="quiz-question-counter">Question 1 / 10</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Active Question Box -->
+                <div class="quiz-card" id="quiz-card" style="background: rgba(15, 18, 36, 0.95); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.75rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.6rem;">
+                      <span id="q-company-badge" style="background: #ef4444; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.65rem; border-radius: 6px; text-transform: uppercase;">ZOHO</span>
+                      <span id="q-round-badge" style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 600;">Technical & Problem Solving Round</span>
+                    </div>
+                    <span id="q-domain-badge" style="font-size: 0.75rem; color: var(--text-muted); background: rgba(255,255,255,0.06); padding: 0.2rem 0.5rem; border-radius: 4px;">Core Logic</span>
+                  </div>
+
+                  <h3 id="q-question-text" style="color: var(--text-primary); font-size: 1.05rem; font-weight: 600; line-height: 1.5; margin-bottom: 1rem;">
+                    What is the final printed output of this pointer manipulation code in C?
+                  </h3>
+
+                  <!-- Optional Code Snippet Block -->
+                  <div id="q-code-container" style="margin-bottom: 1.25rem;">
+                    <pre id="q-code-block" style="background: #04060d; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1rem; color: #38bdf8; font-family: 'Fira Code', monospace; font-size: 0.85rem; overflow-x: auto; line-height: 1.4;"></pre>
+                  </div>
+
+                  <!-- Options Grid -->
+                  <div class="quiz-options-list" id="q-options-list" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <!-- Dynamically populated options -->
+                  </div>
+
+                  <!-- Feedback & Explanation (revealed after selection) -->
+                  <div id="q-explanation-box" style="display: none; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1.25rem; line-height: 1.4;"></div>
+
+                  <!-- Quiz Navigation Controls -->
+                  <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                    <button class="btn btn-secondary" id="btn-quiz-prev" onclick="quizPrevQuestion()" style="font-size: 0.85rem; padding: 0.45rem 0.9rem;">&larr; Prev Question</button>
+                    
+                    <div style="display: flex; gap: 0.35rem; flex-wrap: wrap;" id="quiz-dots-indicator">
+                      <!-- 10 dots indicating progress -->
+                    </div>
+
+                    <button class="btn btn-primary" id="btn-quiz-next" onclick="quizNextQuestion()" style="font-size: 0.85rem; padding: 0.45rem 1rem;">Next Question &rarr;</button>
+                  </div>
+                </div>
+
+                <!-- Quiz Scorecard Banner (Visible after answering) -->
+                <div id="quiz-live-summary" style="margin-top: 1.25rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+                  <div>
+                    <span style="font-size: 0.85rem; font-weight: 700; color: #10b981;">Technical Test Status:</span>
+                    <span id="quiz-answered-count" style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 0.35rem;">0 of 10 Answered</span>
+                  </div>
+                  <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                    Current Test Score: <strong id="quiz-live-score" style="color: #10b981; font-size: 1rem;">0 / 10 (0%)</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Onboarding Wizards Controls -->
+            <div class="wizard-footer">
+              <button class="btn btn-secondary" id="btn-wizard-prev" onclick="wizardPrev()" style="visibility: hidden;">
+                &larr; Back
+              </button>
+              <button class="btn btn-primary" id="btn-wizard-next" onclick="wizardNext()">
+                Continue &rarr;
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= MATCH RESULTS SECTION ================= -->
+      <section id="results" class="page-section">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">AI Career Matches</h1>
+            <p class="section-subtitle" id="results-profile-summary">Recommendations list</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="downloadPlacementAuditReport()" style="display: flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%); border: none; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Placement Audit Report (PDF)
+            </button>
+            <button class="btn btn-secondary" onclick="switchSection('matcher')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+              </svg>
+              Edit Profile
+            </button>
+          </div>
+        </div>
+
+        <div class="results-dashboard">
+          
+          <!-- Matched Career Column -->
+          <div class="results-sidebar">
+            <div class="results-summary-card" id="results-explanation-card">
+              <h3 id="summary-card-count">Matches Found</h3>
+              <p>Your educational background and skill assets are highly valued in these career tracks.</p>
+            </div>
+            
+            <div class="career-cards-list" id="recommendations-list">
+              <!-- Cards rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Selected Career Detail Card Viewer -->
+          <div class="career-detail-panel" id="detail-pane">
+            <!-- Dynamic career detail content -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= COURSE EXPLORER SECTION ================= -->
+      <section id="explorer" class="page-section">
+        <div class="section-header" style="margin-bottom: 1.5rem;">
+          <div>
+            <h1 class="section-title">🎓 All-India Higher Education & Courses Explorer</h1>
+            <p class="section-subtitle">Comprehensive directory of 99+ recognized degree programs and academic streams across India.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-secondary" onclick="openAllCoursesModal()" style="font-size: 0.85rem; padding: 0.45rem 0.9rem;">
+              📚 Quick A-Z Index
+            </button>
+            <button class="btn mode-btn btn-secondary" id="mode-btn-path" onclick="setExplorerMode('path')" style="font-size: 0.85rem; padding: 0.45rem 0.9rem;">
+              🧭 Step-by-Step Path
+            </button>
+            <button class="btn mode-btn btn-primary active" id="mode-btn-catalog" onclick="setExplorerMode('catalog')" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
+              📖 All Courses Catalog
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode 1: Interactive Path Builder (Hidden by default, accessible via toggle) -->
+        <div id="explorer-path-view" class="path-builder-container" style="display: none;">
+          
+          <!-- Interactive Visual Flowchart Nodes -->
+          <div class="path-flow-timeline" style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; background: rgba(15, 18, 36, 0.4); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
+            
+            <div class="flow-node completed" id="node-step1" onclick="navigateToPathStep(1)">
+              <div class="node-icon">🏫</div>
+              <div class="node-details">
+                <span class="node-label">Step 1</span>
+                <strong class="node-value" id="node-value-step1">10th Standard</strong>
+              </div>
+            </div>
+            
+            <div class="flow-connector" id="connector-step1">&rarr;</div>
+            
+            <div class="flow-node active" id="node-step2" onclick="navigateToPathStep(2)">
+              <div class="node-icon">🔬</div>
+              <div class="node-details">
+                <span class="node-label">Step 2</span>
+                <strong class="node-value" id="node-value-step2">Select Stream</strong>
+              </div>
+            </div>
+            
+            <div class="flow-connector" id="connector-step2">&rarr;</div>
+            
+            <div class="flow-node" id="node-step3" onclick="navigateToPathStep(3)">
+              <div class="node-icon">🎓</div>
+              <div class="node-details">
+                <span class="node-label">Step 3</span>
+                <strong class="node-value" id="node-value-step3">Select UG Degree</strong>
+              </div>
+            </div>
+            
+            <div class="flow-connector" id="connector-step3">&rarr;</div>
+            
+            <div class="flow-node" id="node-step4" onclick="navigateToPathStep(4)">
+              <div class="node-icon">📚</div>
+              <div class="node-details">
+                <span class="node-label">Step 4</span>
+                <strong class="node-value" id="node-value-step4">Select PG Stream</strong>
+              </div>
+            </div>
+            
+            <div class="flow-connector" id="connector-step4">&rarr;</div>
+            
+            <div class="flow-node" id="node-step5" onclick="navigateToPathStep(5)">
+              <div class="node-icon">💼</div>
+              <div class="node-details">
+                <span class="node-label">Step 5</span>
+                <strong class="node-value" id="node-value-step5">Career & Scope</strong>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Recommendation Selection Box -->
+          <div class="path-selection-panel" id="path-selection-panel" style="margin-bottom: 2rem;">
+            <h2 class="section-title" id="selection-panel-title" style="text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Choose your 12th Stream / Diploma</h2>
+            <div class="explorer-grid" id="path-options-grid">
+              <!-- Dynamically populated cards -->
+            </div>
+          </div>
+          
+          <!-- Selected Option Details & Final Dashboard Report -->
+          <div class="path-details-dashboard" id="path-details-dashboard" style="display: none; background: rgba(15, 18, 36, 0.6); border: 1px solid var(--border-color); border-radius: 24px; padding: 2rem; margin-top: 2rem; backdrop-filter: blur(16px);">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Mode 2: All India Courses Catalog Browser (Active by default) -->
+        <div id="explorer-catalog-view" style="display: block;">
+          
+          <!-- Search & Filter Card -->
+          <div style="background: rgba(15, 18, 36, 0.75); border: 1px solid var(--border-glow); border-radius: 18px; padding: 1.5rem; margin-bottom: 2rem;">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0 0 0.25rem 0;">Search & Filter Recognized Indian Degrees</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">Explore by stream, degree name, syllabus modules, or salary package.</p>
+              </div>
+              <div id="explorer-course-counter" style="font-size: 0.85rem; font-weight: 700; color: var(--primary); background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); padding: 0.35rem 0.85rem; border-radius: 20px;">
+                Showing 99 Courses
+              </div>
+            </div>
+
+            <!-- Instant Live Search Bar -->
+            <div style="position: relative; margin-bottom: 1.25rem;">
+              <input type="text" id="explorer-course-search" class="form-control" placeholder="🔍 Search any course, degree, or subject (e.g. AI & Data Science, MBBS, Cyber Security, B.Com, Robotics, Physiotherapy, MBA)..." oninput="filterExplorerLiveSearch()" style="padding: 0.75rem 1rem 0.75rem 2.75rem; font-size: 0.95rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+
+            <!-- Stream / Domain Filter Pills -->
+            <div style="margin-bottom: 1rem;">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.5px;">Filter by Academic Stream:</div>
+              <div class="suggestion-pills-row" id="explorer-stream-pills" style="flex-wrap: wrap; gap: 0.45rem;">
+                <span class="suggestion-pill active" onclick="filterExplorerByStream(this, 'all')">🌟 All Streams</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'engineering')">💻 Engineering & Tech</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'medical')">🩺 Medical & Healthcare</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'science')">🧪 Science & Computing</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'commerce')">📊 Commerce & Banking</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'management')">🏢 MBA & Management</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'arts')">🎨 Arts, Media & Design</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'law')">⚖️ Law & Architecture</span>
+                <span class="suggestion-pill" onclick="filterExplorerByStream(this, 'polytechnic')">🛠️ Polytechnic & ITI</span>
+              </div>
+            </div>
+
+            <!-- Stage Level Tabs -->
+            <div class="explorer-tabs-container" style="margin-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1rem;">
+              <div class="explorer-tabs" style="flex-wrap: wrap; gap: 0.5rem;">
+                <button class="explorer-tab-btn active" id="exp-tab-all" onclick="switchExplorerTab('all')">All Degrees (99)</button>
+                <button class="explorer-tab-btn" id="exp-tab-12th" onclick="switchExplorerTab('after12th')">Undergraduate (UG)</button>
+                <button class="explorer-tab-btn" id="exp-tab-ug" onclick="switchExplorerTab('afterUG')">Postgraduate (PG)</button>
+                <button class="explorer-tab-btn" id="exp-tab-10th" onclick="switchExplorerTab('after10th')">After 10th / Diploma</button>
+                <button class="explorer-tab-btn" id="exp-tab-pg" onclick="switchExplorerTab('afterPG')">Doctorate (PhD)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Courses Grid -->
+          <div class="explorer-grid" id="explorer-roadmap-grid">
+            <!-- Dynamically populated cards -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= JOB DIRECTORY SECTION (1000+ Companies) ================= -->
+      <section id="directory" class="page-section">
+        <div class="section-header">
+          <div>
+            <h1 class="section-title">Corporate Hiring Directory</h1>
+            <p class="section-subtitle">Search live hiring company vacancies across all sectors and required skills.</p>
+          </div>
+        </div>
+
+        <!-- Filter Controls bar -->
+        <div class="directory-filters-card">
+          <div class="form-group">
+            <label for="dir-search-name">Search Company Name</label>
+            <input type="text" id="dir-search-name" class="form-control" placeholder="Search (e.g. TATA, Zoho)..." oninput="searchDirectory()">
+          </div>
+          <div class="form-group">
+            <label for="dir-search-skill">Filter by Required Skill</label>
+            <input type="text" id="dir-search-skill" class="form-control" placeholder="Skill (e.g. Python, CAD)..." oninput="searchDirectory()">
+          </div>
+          <div class="form-group">
+            <label for="dir-filter-sector">Industry Sector</label>
+            <select id="dir-filter-sector" class="form-control" onchange="searchDirectory()">
+              <option value="all">All Industries</option>
+              <option value="Tech">Technology</option>
+              <option value="Engineering">Core Engineering</option>
+              <option value="Finance">Banking & Finance</option>
+              <option value="Medical">Medical / Biotech</option>
+              <option value="Science">Sciences Research</option>
+              <option value="Arts">Design & Arts</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dir-filter-edu">Min Qualification</label>
+            <select id="dir-filter-edu" class="form-control" onchange="searchDirectory()">
+              <option value="all">Any Education</option>
+              <option value="10th">10th Pass</option>
+              <option value="12th">12th Science / Com / Arts</option>
+              <option value="Diploma">Diploma Engineering</option>
+              <option value="UG">Graduate (UG)</option>
+              <option value="PG">Postgraduate (PG)</option>
+              <option value="PhD">Doctorate (PhD)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="directory-stats" id="dir-counter-text">
+          Showing 1000 active hiring companies
+        </div>
+
+        <div class="job-listings-grid" id="directory-job-grid" style="margin-top: 1rem;">
+          <!-- Loaded dynamically with pagination -->
+        </div>
+
+        <!-- Pagination Footer Controls -->
+        <div class="directory-pagination">
+          <button class="btn btn-secondary" id="dir-btn-prev" onclick="dirPagePrev()">&larr; Previous</button>
+          <span class="pagination-indicator" id="dir-page-text">Page 1 of 100</span>
+          <button class="btn btn-secondary" id="dir-btn-next" onclick="dirPageNext()">Next &rarr;</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SVG Defs for linear gradient indicators -->
+  <svg style="width:0; height:0; position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </svg>
+
+  <!-- Job Application Modal dialog -->
+  <div class="modal-overlay" id="apply-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeApplyModal()">&times;</button>
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem;" id="modal-job-title">Job Application</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;" id="modal-company-name">Google India | Bangalore</p>
+      
+      <form id="apply-form" onsubmit="submitJobApplication(event)">
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="apply-input-name">Full Name</label>
+          <input type="text" id="apply-input-name" class="form-control" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="apply-input-email">Email Address</label>
+          <input type="email" id="apply-input-email" class="form-control" required placeholder="e.g. tamil@example.com">
+        </div>
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label for="apply-input-details">Add cover details or qualifications summary</label>
+          <textarea id="apply-input-details" class="form-control" style="height: 100px; resize: none;" placeholder="Explain why you are a good match..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Submit Application</button>
+      </form>
+
+      <div class="status-banner success" id="apply-success-banner" style="margin-top: 1.5rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Application submitted successfully! Recipient HR notified.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Courses Pop-up List Modal -->
+  <div class="modal-overlay" id="all-courses-modal">
+    <div class="modal-content" style="width: 900px; max-width: 95%; max-height: 90vh; display: flex; flex-direction: column;">
+      <button class="modal-close" onclick="closeAllCoursesModal()">&times;</button>
+      <h2 style="font-family: var(--font-display); margin-bottom: 0.25rem;">Global Courses Catalog</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Select any course to view its direct next-step academic roadmaps and job scopes.</p>
+      
+      <!-- Modal Search Bar -->
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <input type="text" id="modal-course-search" class="form-control" placeholder="Search course name (e.g. Agriculture, Computer Science)..." oninput="filterModalCourses()">
+      </div>
+      
+      <!-- Grouped Column Directory -->
+      <div class="modal-courses-directory-grid" id="modal-courses-directory">
+        <!-- Columns loaded dynamically: Secondary/Diploma, UG, PG, PhD -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Detailed Syllabus & Pathway Modal -->
+  <div class="modal-overlay" id="course-detail-modal">
+    <div class="modal-content" style="width: 800px; max-width: 95%; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeCourseDetailModal()">&times;</button>
+      <div id="course-modal-content">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Script tags -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
